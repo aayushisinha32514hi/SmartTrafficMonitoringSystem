@@ -6,14 +6,10 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println("=== SMART TRAFFIC MONITORING SYSTEM ===");
+        System.out.println("System Starting...\n");
+
         TrafficController controller = new TrafficController();
-
-        controller.showSignal();
-
-        controller.changeSignal("GREEN", 15);
-        controller.showSignal();
-
-        controller.changeSignal("YELLOW", 5);
-        controller.showSignal();
+        controller.startSystem();
     }
 }

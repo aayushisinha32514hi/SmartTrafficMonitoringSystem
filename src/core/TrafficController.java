@@ -5,33 +5,35 @@ public class TrafficController {
     private TrafficSignal signal;
 
     public TrafficController() {
-        signal = new TrafficSignal("RED", 5);
+        signal = new TrafficSignal("RED", 10);
     }
 
     public void startSystem() {
 
         while (true) {
 
-            signal.setColor("RED");
-            signal.setTimer(5);
-            signal.display();
-            sleep();
-
-            signal.setColor("GREEN");
-            signal.setTimer(5);
-            signal.display();
-            sleep();
-
-            signal.setColor("YELLOW");
-            signal.setTimer(3);
-            signal.display();
-            sleep();
+            runSignal("RED", 10);
+            runSignal("GREEN", 8);
+            runSignal("YELLOW", 3);
         }
     }
 
-    private void sleep() {
+    private void runSignal(String color, int time) {
+
+        signal.setSignal(color, time);
+
+        for (int i = time; i > 0; i--) {
+            signal.setSignal(color, i);
+            signal.display();
+            sleep(1000);
+        }
+
+        System.out.println("---------------------------");
+    }
+
+    private void sleep(int milliseconds) {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(milliseconds);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

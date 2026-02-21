@@ -3,30 +3,27 @@ package core;
 public class TrafficSignal {
 
     private String color;
-    private int timer;
+    private int duration;
 
-    public TrafficSignal(String color, int timer) {
+    public TrafficSignal(String color, int duration) {
         this.color = color;
-        this.timer = timer;
+        this.duration = duration;
     }
 
     public String getColor() {
         return color;
     }
 
-    public int getTimer() {
-        return timer;
+    public int getDuration() {
+        return duration;
     }
 
-    public void setColor(String color) {
+    public void setSignal(String color, int duration) {
         this.color = color;
-    }
-
-    public void setTimer(int timer) {
-        this.timer = timer;
+        this.duration = duration;
     }
 
     public void display() {
-        System.out.println("Signal: " + color + " | Time: " + timer + " seconds");
+        System.out.println("Signal: " + color + " | Time Remaining: " + duration + " seconds");
     }
 }
